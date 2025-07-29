@@ -1,10 +1,10 @@
-This project implements a phishing website detection model using a Variational Autoencoder (VAE) combined with a Deep Neural Network (DNN) classifier.
-It extracts URL-based features, compresses them into a latent representation using VAE, generates synthetic samples through feature interpolation, and finally classifies phishing vs. benign URLs using a DNN.
+This project implements a phishing website detection model using a Variational Autoencoder (VAE) combined with a Deep Neural Network (DNN) classifier.  
+It extracts URL-based features, compresses them into a latent representation using VAE, generates synthetic samples through feature interpolation, and finally classifies phishing vs. benign URLs using a DNN.  
 
-The model supports three different datasets:
-Phishing_Infogain.csv – Original feature-based dataset on ISCX-URL-2016
-urlset_cleaned.csv – URL-based dataset(cleaned)
-val_features.csv – Raw URL text data converted into features of DEPHIDES dataset(val.text)
+The model supports three different datasets:  
+Phishing_Infogain.csv – Original feature-based dataset on ISCX-URL-2016  
+urlset_cleaned.csv – URL-based dataset(cleaned)  
+val_features.csv – Raw URL text data converted into features of DEPHIDES dataset(val.text)  
 
 Variational Autoencoder (VAE) with:
 KL warm-up strategy
