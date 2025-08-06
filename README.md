@@ -68,7 +68,8 @@ python demo_dnn_vae.py \
 | `--clf_batch_size` | 64      | Classifier training batch size |
 | `--clf_val_split`| 0.1     | Validation split for classifier |
 
-recommended parameter:
+recommended parameter:  
+
 iscx : beta  2.0 , warmup_epoch 30, latent_dim default,  vae_epochs 100,  clf_epochs 30, clf_batch_size default,  clf_val_split default 
 
 urlset : beta  1.0 , warmup_epoch 50, latent_dim default,  vae_epochs 150,  clf_epochs 50, clf_batch_size default,  clf_val_split default 
