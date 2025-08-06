@@ -1,4 +1,4 @@
-VAE-DNN Based Phishing Website Detection
+#  VAE-DNN Based Phishing Website Detection
 
 This project implements a Variational Autoencoder (VAE) combined with a
 Deep Neural Network (DNN) classifier for phishing website detection
@@ -7,11 +7,10 @@ It supports Weights & Biases (W&B) for training visualization and
 command-line arguments (argparse) for flexible configuration.
 
 ------------------------------------------------------------------------
-
-Features
+##  Features
 
 -    TensorFlow/Keras implementation of VAE-DNN
--    Supports multiple datasets: ISCX-URL-2016, URLSet(phishstorm), Dephides
+-    Supports multiple datasets: ISCX-URL-2016, URLSet, Dephides
 -    Two encoder/decoder architectures selectable via command-line
 -    β-VAE with configurable KL-loss warm-up
 -    Synthetic feature generation for data augmentation
@@ -20,28 +19,34 @@ Features
 -    Full training visualization with W&B
 -    Saves training metrics, plots, and final report
 
-------------------------------------------------------------------------
-
- Environment Setup
-
-1. Clone Repository
-
-    git clone https://github.com/2020147585/phish_vae_dnn.git
-    cd phish_vae_dnn
-
-2. Install Dependencies
-
-    pip install -r requirements.txt
-
-3. Login to W&B (Optional)
-
-    wandb login
 
 ------------------------------------------------------------------------
 
- How to Run
+##  Environment Setup
 
-    python demo_dnn_vae.py \
+### 1. Clone Repository
+```bash
+git clone https://github.com/YOUR_USERNAME/phish_vae_dnn.git
+cd phish_vae_dnn
+```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Login to W&B (Optional)
+```bash
+wandb login
+```
+> If you don't have an account, choose "Create a W&B account" when prompted.
+
+---
+
+##  How to Run
+
+```bash
+python demo_dnn_vae.py \
         --dataset iscx \
         --beta 2.0 \
         --warmup_epochs 30 \
@@ -49,90 +54,84 @@ Features
         --vae_epochs 100 \
         --clf_epochs 50 \
         --clf_batch_size 64
+```
 
-Command-line Arguments
+### Command-line Arguments
+| Parameter         | Default | Description |
+|-------------------|---------|-------------|
+| `--dataset`        | iscx  | Dataset type: `urlset`, `iscx`, `dephides` |
+| `--beta`     | 2.0      | β-VAE KL divergence weight |
+| `--warmup_epochs`         | 30      | Warm-up epochs for β scheduling |
+| `--latent_dim`             | 32   | Latent space dimension for VAE |
+| `--vae_epochs`        | 100       | Number of VAE training epochs |
+| `--clf_epochs`        | 50    | Number of classifier training epochs |
+| `--clf_batch_size` | 64      | Classifier training batch size |
+| `--clf_val_split`| 0.1     | Validation split for classifier |
 
-  -----------------------------------------------------------------------
-  Parameter                        Default         Description
-  -------------------------------- --------------- ----------------------
-  --dataset                        iscx            Dataset type: iscx,
-                                                   urlset, dephides
+recommended parameter:
+iscx : beta  2.0 , warmup_epoch 30, latent_dim default,  vae_epochs 100,  clf_epochs 30, clf_batch_size default,  clf_val_split default 
 
-  --beta                           2.0             β-VAE KL divergence
-                                                   weight
+urlset : beta  1.0 , warmup_epoch 50, latent_dim default,  vae_epochs 150,  clf_epochs 50, clf_batch_size default,  clf_val_split default 
 
-  --warmup_epochs                  30              Warm-up epochs for β
-                                                   scheduling
+dephides : beta  1.5 , warmup_epoch 90, latent_dim default,  vae_epochs 150,  clf_epochs 50, clf_batch_size default,  clf_val_split default
 
-  --latent_dim                     32              Latent space dimension
-                                                   for VAE
+---
 
-  --vae_epochs                     100             Number of VAE training
-                                                   epochs
+##  Training Results
 
-  --clf_epochs                     50              Number of classifier
-                                                   training epochs
-
-  --clf_batch_size                 64              Classifier training
-                                                   batch size
-
-  --clf_val_split                  0.1             Validation split for
-                                                   classifier
-
-------------------------------------------------------------------------
-
- Training Results
-
- 
- Metrics (Accuracy, loss, reconstruction_loss, etc..)
+###  Metrics (Accuracy, loss, reconstruction_loss, etc..)
 
 
- Latent Space Visualization
+###  Latent Space Visualization
 
 
-
- Confidence Histogram
-
+###  Confidence Histogram
 
 
-------------------------------------------------------------------------
+---
 
- Final Report
+##  Final Report
 
     Trusted generated features (confidence >= 0.95): XX / Total
     Strong confidence (>0.9): XX
     Weak confidence (<0.7): XX
+    
+---
 
-------------------------------------------------------------------------
-
- Output Files
-
+## Output Files
 -   training_loss_*.png → VAE training loss curve
 -   latent_space_*.png → Latent space visualization via PCA
 -   confidence_histogram_*.png → Confidence histogram of synthetic
     samples
 -   vae_model_weights.h5 → Trained VAE weights
--   classifier_model_weights.h5 → Trained DNN classifier weights
+-   classifier_model_weights.h5 → Trained DNN classifier weights 
 
-------------------------------------------------------------------------
+---
 
- W&B Dashboard
-
+##  W&B Dashboard
 You can view detailed logs and training visualizations on W&B
 
-------------------------------------------------------------------------
+---
 
+## Completed Requirements
 
- Known Limitations / Future Improvements
+-  Training result files uploaded to GitHub
+-  Training visualization using W&B
+-  Command-line arguments via argparse
+-  Final report with trusted sample metrics
+  
 
--    Latent space visualization currently PCA only → Future: add t-SNE
+---
+
+##  Known Limitations / Future Improvements
+
+-   Latent space visualization currently PCA only → Future: add t-SNE
     or UMAP
--    Synthetic data quality depends on β and warm-up → Future:
+-   Synthetic data quality depends on β and warm-up → Future:
     Auto-tune these parameters
--    Classifier and VAE trained sequentially → Future: joint
+-   Classifier and VAE trained sequentially → Future: joint
     end-to-end training
--    Hyperparameters tuned manually → Future: integrate Optuna for
+-   Hyperparameters tuned manually → Future: integrate Optuna for
     optimization
--    Tested only on three datasets, moreover, URLSet(phishstorm) and Dephises did not perform well in the initial data cleaning stage. → Expand to more phishing datasets and well clean for robustness
-
+-   Tested only on three datasets, moreover, URLSet(phishstorm) and Dephises did not perform well in the initial data cleaning stage. → Expand to more phishing datasets and well clean for robustness
 
