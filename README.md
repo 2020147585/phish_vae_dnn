@@ -26,7 +26,7 @@ command-line arguments (argparse) for flexible configuration.
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/phish_vae_dnn.git
+git clone https://github.com/2020147485/phish_vae_dnn.git
 cd phish_vae_dnn
 ```
 
