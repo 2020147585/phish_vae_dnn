@@ -112,15 +112,6 @@ dephides : beta  1.5 , warmup_epoch 90, latent_dim default,  vae_epochs 150,  cl
 ##  W&B Dashboard
 You can view detailed logs and training visualizations on W&B
 
----
-
-## Completed Requirements
-
--  Training result files uploaded to GitHub
--  Training visualization using W&B
--  Command-line arguments via argparse
--  Final report with trusted sample metrics
-  
 
 ---
 
