@@ -1,0 +1,21 @@
+{
+  "accuracy(%)": 0.8613023522662077,
+  "precision(%)": 0.8195645690426484,
+  "recall(%)": 0.8836012861736334,
+  "f1(%)": 0.8503790809221724,
+  "false_positive_rate(%)": 0.15665458311755565,
+  "inference_time_ms_per_instance(ms/sample)": 204.85199365621298,
+  "avg_mem_mb_single_url(MB/URL)": 0.006805419921875,
+  "max_mem_mb_single_url(MB/URL)": 0.18359375,
+  "model_size_mb(MB)": 0.1800689697265625,
+  "best_threshold": 0.42999999999999994,
+  "optimize_for": "f1",
+  "strong_pos_threshold": 0.9,
+  "strong_neg_threshold": 0.1,
+  "strong_pos_count": 4716,
+  "strong_neg_count": 6772,
+  "strong_conf_total": 11488,
+  "strong_conf_coverage": 0.5492445974373685,
+  "strong_pos_accuracy(%)": 0.9698897370653096,
+  "strong_neg_accuracy(%)": 0.9777023036030714
+}
